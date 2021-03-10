@@ -1,0 +1,20 @@
+<h1 class="mt-4"> Admin </h1>
+<p class="lead mb-3">Welcome <%= user.name %></p>
+
+    
+    <div>
+        <p>Current Active Sessions: </p>
+    <% Sessions.forEach((session)=> {   %>
+        <p>
+        <label>
+          <span>SessionID: <%=session.SessionKey%></span>
+          <span>UserID: <%=session.SessionUserID%></span>
+          <!-- creates a link with the SessionKey variable for each a tag -->
+          <a href='/auth/logoutUser/<%=session.SessionKey%>'>Revoke Session</a>
+        </label>
+        </p>
+    <%  });                             %>
+    </div>
+
+
+<a href="/auth/logout" class="btn btn-secondary">Logout</a>
